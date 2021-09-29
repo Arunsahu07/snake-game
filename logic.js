@@ -1,18 +1,18 @@
-let snakeSpeed = 20;
+let snakeSpeed = 10;
 let foodPosition = {
     x: 0,
     y: 0
 }
-updateFood();
-let snakeBody = [
-  { x: 10, y: 10 },
-  { x: 10, y: 11 },
-  { x: 10, y: 12 },
-];
 const snakeBoard = document.querySelector(".board");
 timeSinceLastRender = 0;
 let x = 0,
   y = 0;
+let snakeBody = [
+  { x: 10, y: 10},
+  {x: 10, y:11}
+];
+updateFood();
+drawFood()
 
 
 function main(timeStamp) {
@@ -35,6 +35,15 @@ function drawSnake() {
     element.classList.add("cell");
     snakeBoard.appendChild(element);
   });
+  for(let i =1; i<snakeBody.length; i++)
+  {
+    if(JSON.stringify(snakeBody[0]) === JSON.stringify(snakeBody[i]))
+    {
+      alert("game is over refresh the page to restart");
+      x = 0;
+      y =0;
+    }
+  }
 }
 function updataSnakePosition() {
     if (x || y) {
@@ -47,6 +56,14 @@ function updataSnakePosition() {
     }
     snakeBody[0].x += x;
     snakeBody[0].y += y;
+    // console.log(snakeBody[0]);
+    if(snakeBody[0].x === 0 || snakeBody[0].x === 21 || snakeBody[0].y=== 0 || snakeBody[0].y ===21 )
+    {
+        alert("game is over refresh to restart :)");
+        x = 0;
+        y = 0;
+
+    }
   }
   if(snakeBody[0].x === foodPosition.x && snakeBody[0].y === foodPosition.y)
   {
@@ -55,7 +72,6 @@ function updataSnakePosition() {
   }
 }
 window.addEventListener("keydown", (e) => {
-  console.log(e.key);
   switch (e.key) {
     case "ArrowUp":
       if (!y) {
@@ -91,6 +107,25 @@ window.addEventListener("keydown", (e) => {
 
 function drawFood()
 {
+  let isFoodInSnakeBody = false;
+
+  do
+    {
+      let isFoodInSnakeBody = false;
+      for(let i=0; i<snakeBody.length; i++)
+      {
+        if( JSON.stringify(foodPosition) === JSON.stringify(snakeBody[i]))
+        {
+          isFoodInSnakeBody = true;
+        }
+       if(isFoodInSnakeBody)
+       {
+         updateFood();
+       }
+      }
+    }
+    while(isFoodInSnakeBody);
+
     const food = document.createElement("div");
     food.style.gridColumnStart = foodPosition.x;
     food.style.gridRowStart = foodPosition.y;
@@ -99,7 +134,8 @@ function drawFood()
 }
 function updateFood()
 {
-    foodPosition.x = parseInt(Math.random()*20 +1)
-    foodPosition.y = parseInt(Math.random()*21 +1)
+    foodPosition.x = parseInt(Math.random()*19 + 1);
+    foodPosition.y = parseInt(Math.random()*19 + 1);
+   
 
 }

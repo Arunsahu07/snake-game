@@ -1,28 +1,32 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.board,div{
-
-
-    width: 100vmin;
-    height: 100vmin;
-    background-color: rgb(59, 241, 59);
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
+.board {
+  width: 100vmin;
+  height: 100vmin;
+  background-color: rgb(193, 59, 255);
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  border: 3px solid rgb(255, 217, 217);
+  margin:5px;
 }
-body{display: flex;
-    justify-content: center;
-align-items: center;
-height: 100vh;}
-.cell, .food{
-    background-color: blue;
-    border: .25vmin solid salmon;
-    width: auto;
-    height: auto;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:rgb(34, 32, 32);
 }
-.food{
-    background-color: yellow;;
+.cell,
+.food {
+  border-radius: 5px;
+  background-color: blue;
+  border: 0.25vmin solid rgb(218, 188, 184);
+}
+.food {
+  background-color: yellow;
+  border-radius: 10px;
 }
