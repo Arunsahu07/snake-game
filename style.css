@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.board,div{
+
+
+    width: 100vmin;
+    height: 100vmin;
+    background-color: rgb(59, 241, 59);
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+body{display: flex;
+    justify-content: center;
+align-items: center;
+height: 100vh;}
+.cell, .food{
+    background-color: blue;
+    border: .25vmin solid salmon;
+    width: auto;
+    height: auto;
+}
+.food{
+    background-color: yellow;;
+}
