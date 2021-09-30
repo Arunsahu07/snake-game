@@ -71,6 +71,9 @@ function updataSnakePosition() {
       updateFood();
   }
 }
+
+
+
 window.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "ArrowUp":
@@ -103,6 +106,34 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
+snakeBoard.addEventListener("swiped-left", ()=>{
+  if (!x)
+  {
+    x = -1;
+    y = 0;
+  }
+})   
+snakeBoard.addEventListener("swiped-right", ()=>{
+  if (!x)
+  {
+    x = 1;
+    y = 0;
+  }
+})  
+snakeBoard.addEventListener("swiped-up", ()=>{
+  if (!y)
+  {
+    x = 0;
+    y = -1;
+  }
+})  
+snakeBoard.addEventListener("swiped-down", ()=>{
+  if (!y)
+  {
+    x = 0;
+    y = 1;
+  }
+})  
 
 
 function drawFood()
