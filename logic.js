@@ -28,11 +28,17 @@ function main(timeStamp) {
 window.requestAnimationFrame(main);
 
 function drawSnake() {
-  snakeBody.forEach((cell) => {
+  let border_radius = 1;
+  snakeBody.forEach((cell,idx) => {
     const element = document.createElement("div");
     element.style.gridRowStart = cell.y;
     element.style.gridColumnStart = cell.x;
     element.classList.add("cell");
+    element.style.width = String( Math.max((5*(snakeBody.length - idx)/snakeBody.length), 3)  ) + "vmin";
+    element.style.height = String( Math.max((5*(snakeBody.length - idx)/snakeBody.length), 3) ) + "vmin";
+    // element.style.height = '2vmin';
+    border_radius += 1;
+
     snakeBoard.appendChild(element);
   });
   for(let i =1; i<snakeBody.length; i++)
@@ -105,35 +111,6 @@ window.addEventListener("keydown", (e) => {
       y = 0;
   }
 });
-
-snakeBoard.addEventListener("swiped-left", ()=>{
-  if (!x)
-  {
-    x = -1;
-    y = 0;
-  }
-})   
-snakeBoard.addEventListener("swiped-right", ()=>{
-  if (!x)
-  {
-    x = 1;
-    y = 0;
-  }
-})  
-snakeBoard.addEventListener("swiped-up", ()=>{
-  if (!y)
-  {
-    x = 0;
-    y = -1;
-  }
-})  
-snakeBoard.addEventListener("swiped-down", ()=>{
-  if (!y)
-  {
-    x = 0;
-    y = 1;
-  }
-})  
 
 
 function drawFood()

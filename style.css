@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* margin: auto; */
 }
 .board {
   width: 100vmin;
@@ -20,9 +21,13 @@ body {
   height: 100vh;
   background-color:rgb(34, 32, 32);
 }
+.cell{
+  margin: auto;
+  border-radius: 30%;
+}
 .cell,
 .food {
-  border-radius: 5px;
+  /* border-radius: 50%; */
   background-color: blue;
   border: 0.25vmin solid rgb(218, 188, 184);
 }
