@@ -17,7 +17,7 @@ drawFood()
 
 function main(timeStamp) {
   window.requestAnimationFrame(main);
-  //    console.log(timeStamp);
+    //  console.log(timeStamp);
   if (timeStamp > timeSinceLastRender + 1000 / snakeSpeed) {
     timeSinceLastRender = timeStamp;
     updataSnakePosition();
@@ -34,9 +34,6 @@ function drawSnake() {
     element.style.gridRowStart = cell.y;
     element.style.gridColumnStart = cell.x;
     element.classList.add("cell");
-    element.style.width = String( Math.max((5*(snakeBody.length - idx)/snakeBody.length), 3)  ) + "vmin";
-    element.style.height = String( Math.max((5*(snakeBody.length - idx)/snakeBody.length), 3) ) + "vmin";
-    // element.style.height = '2vmin';
     border_radius += 1;
 
     snakeBoard.appendChild(element);
@@ -147,3 +144,4 @@ function updateFood()
    
 
 }
+
