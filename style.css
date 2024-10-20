@@ -5,13 +5,13 @@
   /* margin: auto; */
 }
 .board {
-  width: 100vmin;
-  height: 100vmin;
-  background-color: rgb(193, 59, 255);
+  width: 90vh;
+  height: 90vh;
+  background-color: rgb(27, 27, 28);
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(20, 1fr);
-  border: 3px solid rgb(255, 217, 217);
+  border: 1px solid rgb(46, 45, 45);
   margin:5px;
 }
 body {
@@ -28,10 +28,17 @@ body {
 .cell,
 .food {
   /* border-radius: 50%; */
-  background-color: blue;
+  background-color: rgb(245, 52, 52);
   border: 0.25vmin solid rgb(218, 188, 184);
+  width: 4.5vmin;
+  height: 4.5vmin;
 }
 .food {
-  background-color: yellow;
+  background-color: rgb(77, 245, 144);
   border-radius: 10px;
+}
+li{
+  color: teal;
+  font-weight: 400;
+  font-size: 2rem;
 }
